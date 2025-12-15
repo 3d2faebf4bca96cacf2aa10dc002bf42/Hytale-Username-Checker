@@ -1,0 +1,7 @@
+{
+  "threads": 3,
+  "timeout": 10,
+  "retries": 5,
+  "retry_delay": 10.0,
+  "debug": false
+}
