@@ -50,7 +50,7 @@ class ResultWriter:
 class UsernameChecker:
     """Multi-threaded Hytale username availability checker."""
 
-    API_URL = "https://api.hytl.tools/check/{}"
+    API_URL = "https://api.hytl.tools/v1/search?query={}"
 
     HEADERS = {
         "Accept": "*/*",
@@ -102,7 +102,7 @@ class UsernameChecker:
 
                 if response.status == 200:
                     data = json.loads(body)
-                    available = data.get("available", False)
+                    available = len(data.get("profiles", [])) == 0
 
                     if available:
                         self.logger.hit(username)
